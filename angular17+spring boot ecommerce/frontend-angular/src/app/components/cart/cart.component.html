@@ -1,0 +1,70 @@
+<main class="mt-20">
+    @if(cart?.cartItems.length>0){
+        <div class="py-10 lg:grid grid-cols-3 lg:px-16 relative">
+    <!-- Cart items section -->
+    <section class="lg:col-span-2 lg:px-5">
+      <div class="px-5 space-y-3">
+        @for(product of cart?.cartItems; track product; let
+        last=$last){
+        <div>
+          <app-cart-item [showButton]="true" [product]="product" />
+          @if(!last){
+          <mat-divider></mat-divider>
+          }
+       
+        </div>
+        }
+      </div>
+    </section>
+
+    <!-- Price details section -->
+    <section class="px-5 sticky top-0 h-[100vh] mt-5 lg:mt-0">
+    
+        <div class="box p-5 shadow-lg rounded-md">
+          <p class="font-bold text-gray-500 pb-4">PRICE DETAILS</p>
+          <mat-divider></mat-divider>
+
+          <div class="space-y-3">
+            <div class="flex justify-between pt-3">
+              <span>Total price</span>
+              <span>₹{{ cart.cart?.totalPrice }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Discount</span>
+              <span class="text-green-700">-₹{{ cart.cart?.discounte }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Delivery Charges</span>
+              <span class="text-green-700">Free</span>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="flex justify-between font-semibold text-lg">
+              <span>Total Amount</span>
+              <span class="text-green-700"
+                >₹{{ cart.cart?.totalDiscountedPrice }}</span
+              >
+            </div>
+          </div>
+
+          <!-- Check out button -->
+          <button
+            (click)="navigateToCheckout()"
+            style="padding: 1.5rem"
+            class="text-lg mt-8 p-28 px-10 w-full"
+            mat-raised-button
+            color="accent"
+          >
+            CHECKOUT
+          </button>
+        </div>
+      
+        
+    </section>
+  </div>
+    }@else{
+        <div class="flex justify-center items-center h-[75vh]">
+            <h1 class="text-xl font-semibold">empty cart</h1>
+        </div>
+    }
+  
+</main>

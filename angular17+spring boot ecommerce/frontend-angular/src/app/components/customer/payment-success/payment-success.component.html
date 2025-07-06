@@ -1,0 +1,39 @@
+<div class="px-2 lg:px-36 py-20">
+  
+    <div class="py-5">
+      <h2 class="text-center pb-20">{{'order status' | uppercase}}</h2>
+      <app-order-tracker [steps]="steps" [activeStep]="activeStep" />
+    </div>
+    
+  
+    <div class="space-y-5 py-5 pt-20">
+      <ng-container *ngFor="let item of order.orderItems">
+        <div class="rounded-md p-5 lg:flex items-center justify-between box">
+          <div class="flex items-center">
+            <img
+              class="w-20 h-20 object-cover object-top"
+              [src]="item.product.imageUrl"
+            />
+            <div class="ml-5 space-y-2">
+              <p class="text-lg font-semibold">
+                {{ item.product.title }}
+              </p>
+              <p class="opacity-50 text-xs font-semibold space-x-5">
+                <span>Color: pink</span>
+                <span>Size: {{ item.size }}</span>
+              </p>
+              <p>Seller: {{ item.product.brand }}</p>
+              <p>₹{{ item.product.discountedPrice }}</p>
+            </div>
+          </div>
+          <div>
+            <mat-divider [vertical]="false"></mat-divider>
+          </div>
+          <div class="">
+            <app-adress-card [address]="order.shippingAddress" />
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  

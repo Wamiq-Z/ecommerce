@@ -1,0 +1,71 @@
+<div>
+  <form
+    id="accesspanel"
+    [formGroup]="registrationForm"
+    (ngSubmit)="submitForm()"
+    autocomplete="off"
+  >
+    <h1 class="text-center">Shop with Zosh</h1>
+    <div class="inset">
+      <mat-form-field class="w-full">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" required />
+        @if(registrationForm.controls['firstName'].hasError('required')){
+        <mat-error> First Name is required </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" required />
+        @if(registrationForm.controls['lastName'].hasError('required')){
+        <mat-error> Last Name is required </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required email />
+        @if(registrationForm.controls['email'].hasError('required')){
+        <mat-error> Email is required </mat-error>
+        } @if(registrationForm.controls['email'].hasError('email')){
+        <mat-error> Please enter a valid email address </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          type="password"
+          required
+          minlength="8"
+        />
+        @if(registrationForm.controls['password'].hasError('required')){
+        <mat-error> Password is required </mat-error>
+        } @if(registrationForm.controls['password'].hasError('minlength')){
+        <mat-error> Password should be at least 8 characters long </mat-error>
+        }
+      </mat-form-field>
+
+      <div class="">
+        <button
+          class="w-full border"
+          style="padding: 1.7rem"
+          type=""
+          mat-raised-button
+          color="accent"
+        >
+          REGISTER
+        </button>
+      </div>
+      <div class="flex items-center space-x-3 justify-center my-10">
+        <span>if you have already account ?</span>
+        <button class="" mat-button color="accent" (click)="changeTemplate()">
+          LOGIN
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

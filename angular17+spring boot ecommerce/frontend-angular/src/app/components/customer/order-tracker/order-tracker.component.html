@@ -1,0 +1,51 @@
+<div class="flex justify-between space-x-8 w-full">
+    @for(step of steps; track step; let index = $index; let last = $last){
+<div
+     
+      class="flex justify-between items-center space-x-5"
+    >
+      <div
+        [ngClass]="{
+          'bg-green-500': step.isCompleted,
+          'bg-gray-300': !step.isCompleted
+        }"
+        class="h-8 w-8 rounded-full flex justify-center items-center"
+      >
+        <ng-container>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="white"
+            class="h-6 w-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </ng-container>
+      </div>
+  
+      <span
+        class=""
+        
+      >
+        {{ step.title }}
+      </span>
+  
+      <div *ngIf="!last" class="lg: w-[27vh]">
+        <mat-divider
+          [ngClass]="{
+            'text-green-500': activeStep == step.title,
+            'text-gray-500': activeStep !== step.title
+          }"
+        ></mat-divider>
+      </div>
+    </div>
+    }
+    
+  </div>
+  

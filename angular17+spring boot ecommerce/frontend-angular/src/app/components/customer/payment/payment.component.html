@@ -1,0 +1,64 @@
+<div class="mt-24 space-y-5 px-5 lg:px-20">
+  @if(order$ | async; as order){
+  <div>
+    <div class="p-5 shadow-lg rounded-md box my-5">
+      <app-adress-card [address]="order.shippingAddress" />
+    </div>
+    <div
+      class="grid grid-cols-1 gap-5 lg:grid-cols-3 relative justify-between py-5"
+    >
+      <div class="col-span-2">
+        <div class="space-y-3 rounded-md">
+          @for(product of order.orderItems; track product; let last=$last){
+          <div>
+            <app-cart-item [showButton]="false" [product]="product" />
+            @if(!last){
+                <mat-divider></mat-divider>
+            }
+            
+          </div>
+          }
+        </div>
+      </div>
+      <div class="col-span-1 sticky top-0 h-[100vh] mt-5 lg:mt-0 lg:ml-5">
+        <div class="p-5 shadow-lg rounded-md box">
+          <p class="text-gray-600 font-semibold pb-4">PRICE DETAILS</p>
+          <mat-divider></mat-divider>
+
+          <div class="space-y-5 font-semibold mb-5">
+            <div class="flex justify-between pt-3">
+              <span>Price 3 item</span>
+              <span>₹{{ order.totalPrice }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Discount</span>
+              <span class="text-green-700">-₹{{ order.discounte }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Delivery Charges</span>
+              <span class="text-green-700">Free</span>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="flex justify-between font-bold text-lg">
+              <span>Total Amount</span>
+              <span class="text-green-700"
+                >₹{{ order.totalDiscountedPrice }}</span
+              >
+            </div>
+          </div>
+
+          <button
+            class="w-full"
+            style="padding: 1.6rem"
+            (click)="redirectToPaymentPage()"
+            mat-raised-button
+            color="accent"
+          >
+            Payment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>

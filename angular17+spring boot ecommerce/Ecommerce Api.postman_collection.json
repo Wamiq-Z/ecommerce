@@ -1,0 +1,993 @@
+{
+	"info": {
+		"_postman_id": "22413616-5ee4-4ce6-b52f-ecbe74ab24ef",
+		"name": "Ecommerce Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25460319"
+	},
+	"item": [
+		{
+			"name": "Colors",
+			"item": [
+				{
+					"name": "Create Color",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sing Up",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"ashok\",\r\n    \"lastName\":\"zosh\",\r\n    \"email\":\"ashok@gmail.com\",\r\n    \"password\":\"12345678\",\r\n    \"role\":\"ROLE_ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5454/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign In",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"email\":\"ashok@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5454/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Address",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ6b3MgYWNhZGVteSIsInN1YiI6IkpXVCBUb2tlbiIsInVzZXJuYW1lIjoidmluYXlha0BnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiIsImlhdCI6MTY3NjcwMDY2NiwiZXhwIjoxNjc3MTAwNjY2fQ.dkR0Hx7oJzV5hCA4AKR7C9HXihOZjf4TZSIRyHhxTAI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"state\":\"Gujarat\",\r\n    \"city\":\"Ahemdabad\",\r\n    \"pincode\":\"36001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5454/user/new_address/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"user",
+						"new_address",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Women's Cotton Kurti 2\",\r\n  \"description\": \"This beautiful cotton kurti is perfect for any occasion. Made from high-quality materials, it is comfortable, stylish, and affordable.\",\r\n  \"price\": 799.99,\r\n  \"discountedPrice\": 699.99,\r\n  \"discountPersent\": 12,\r\n  \"quantity\": 100,\r\n  \"brand\": \"ABC\",\r\n  \"color\": \"Blue\",\r\n  \"size\": [\r\n    {\r\n      \"name\": \"S\",\r\n      \"quantity\": 20\r\n    },\r\n    {\r\n      \"name\": \"M\",\r\n      \"quantity\": 30\r\n    },\r\n    {\r\n      \"name\": \"L\",\r\n      \"quantity\": 50\r\n    }\r\n  ],\r\n  \"images\": [\"https://manyavar.scene7.com/is/image/manyavar/I02_IMGL6125%20copy%20copy_11-10-2021-20-13:650x900\",\r\n  \"https://rukminim2.flixcart.com/image/612/612/xif0q/lehenga-choli/l/u/d/free-full-sleeve-bolly-life-sky-original-imag6tz2sfhgthxf.jpeg?q=70\"],\r\n  \"topLavelCategory\": \"Women\",\r\n  \"secondLavelCategory\": \"Clothing\",\r\n  \"thirdLavelCategory\": \"lehenga\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5454/api/admin/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"admin",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/users/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "color",
+							"value": "Blue",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "minPrice",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "maxPrice",
+							"value": "10000",
+							"disabled": true
+						},
+						{
+							"key": "minDiscount",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "mens_kurta",
+							"disabled": true
+						},
+						{
+							"key": "stock",
+							"value": "null",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "undefined",
+							"disabled": true
+						},
+						{
+							"key": "pageNumber",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "pageSize",
+							"value": "10",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find product by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2ODM3MDQ1MjEsImV4cCI6MTY4Mzc5MDkyMSwiZW1haWwiOiJ2aW5heWFrQGdtYWlsLmNvbSJ9.3UiUdr7itCOdfcIVGcLp_PAty1WLCt5SHgIOYQOfpMuotnKfnjQT_yJ0aCcp5fZU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add item to cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\":2,\r\n    \"size\":\"M\",\r\n    \"quantity\":8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5454/api/cart/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"cart",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/cart/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"cart",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Cart Item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update cartitem",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2ODM3OTQ1MTcsImV4cCI6MTY4Mzg4MDkxNywiZW1haWwiOiJ2YWtocmFuQGdtYWlsLmNvbSJ9.RVQcHitgbeiEk-unULel9I1avkYVmq-89HlXmst86CwDLapYDipZGN07qTzVxLff",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5454/api/cart_items/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"cart_items",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"Vakhran\",\r\n  \"lastName\": \"Doe\",\r\n  \"streetAddress\": \"123 Main St\",\r\n  \"city\": \"Anytown\",\r\n  \"state\": \"CA\",\r\n  \"zipCode\": \"12345\",\r\n  \"mobile\": \"555-555-1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5454/api/orders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create payment link",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/payments/651943b7ceba9c53baa42bfa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"payments",
+						"651943b7ceba9c53baa42bfa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch paymnet details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2ODM3OTQ1MTcsImV4cCI6MTY4Mzg4MDkxNywiZW1haWwiOiJ2YWtocmFuQGdtYWlsLmNvbSJ9.RVQcHitgbeiEk-unULel9I1avkYVmq-89HlXmst86CwDLapYDipZGN07qTzVxLff",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/payments/pay_LodIH9EjCig5re",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"payments",
+						"pay_LodIH9EjCig5re"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order History",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/orders/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"orders",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find order by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/orders/651943b7ceba9c53baa42bfa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"orders",
+						"651943b7ceba9c53baa42bfa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/k4d27ww0/shirt/q/w/t/l-el024-el-senor-original-imafnadnjp5pq6tg.jpeg?q=70\",\r\n        \"brand\": \"El Senor\",\r\n        \"title\": \"Men Regular Fit Solid Cut Away Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 299,\r\n        \"price\": 1299,\r\n        \"discountPersent\": 76,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/f/z/l/m-white-formal-youthfirst-original-imagqjdfgwjfwgsb.jpeg?q=70\",\r\n        \"brand\": \"youth first\",\r\n        \"title\": \"Men Regular Fit Solid Curved Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 299,\r\n        \"price\": 899,\r\n        \"discountPersent\": 66,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/i/a/z/4xl-white-vtexx-original-imagnzecssjs3y9g.jpeg?q=70\",\r\n        \"brand\": \"VTEXX\",\r\n        \"title\": \"Men Regular Fit Solid Cut Away Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 299,\r\n        \"price\": 1299,\r\n        \"discountPersent\": 76,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/j/x/v/-original-imaghrnsfvbhrsny.jpeg?q=70\",\r\n        \"brand\": \"PETER ENGLAND\",\r\n        \"title\": \"Men Regular Fit Checkered Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 879,\r\n        \"price\": 1599,\r\n        \"discountPersent\": 45,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/7/k/2/xl-kcsh-fo-1647-ma-fubar-original-imaghehzpwgjzg2y.jpeg?q=70\",\r\n        \"brand\": \"FUBAR\",\r\n        \"title\": \"Men Slim Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 419,\r\n        \"price\": 1648,\r\n        \"discountPersent\": 74,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/x/m/n/40-men-regular-slim-fit-solid-button-down-collar-formal-shirt-original-imagf4mn9zg7qrmf-bb.jpeg?q=70\",\r\n        \"brand\": \"MILDIN\",\r\n        \"title\": \"Men Slim Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 399,\r\n        \"price\": 1299,\r\n        \"discountPersent\": 69,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/z/q/n/l-frml-st2-vebnor-original-imagqwyfw9gguwvc.jpeg?q=70\",\r\n        \"brand\": \"VeBNoR\",\r\n        \"title\": \"Men Regular Fit Solid Button Down Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 379,\r\n        \"price\": 1849,\r\n        \"discountPersent\": 79,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/w/0/g/xl-bkchx3-bk-brand-original-imagqfdgf3s6fefd.jpeg?q=70\",\r\n        \"brand\": \"BK BRAND\",\r\n        \"title\": \"Men Regular Fit Checkered Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 498,\r\n        \"price\": 999,\r\n        \"discountPersent\": 50,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/l13whow0/shirt/p/3/a/44-dbhs1703-01-3bros-original-imagcr4fhjtjcyqw.jpeg?q=70\",\r\n        \"brand\": \"3BROS\",\r\n        \"title\": \"Men Regular Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 499,\r\n        \"price\": 799,\r\n        \"discountPersent\": 50,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/5/7/k/m-dbfs1703-01-3bros-original-imagbghcf5bg3zwm-bb.jpeg?q=70\",\r\n        \"brand\": \"3BROS\",\r\n        \"title\": \"Men Regular Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 499,\r\n        \"price\": 1799,\r\n        \"discountPersent\": 72,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/l3t2fm80/shirt/k/q/h/l-r-white-stoneberg-original-imageum3rhbkphxd.jpeg?q=70\",\r\n        \"brand\": \"STONEBERG\",\r\n        \"title\": \"Men Slim Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 409,\r\n        \"price\": 1599,\r\n        \"discountPersent\": 74,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/ksdjma80/shirt/f/2/i/xl-men-solid-casual-shirt-refresh-original-imag5ymxgwqgx62k.jpeg?q=70\",\r\n        \"brand\": \"Refresh\",\r\n        \"title\": \"Men Regular Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 449,\r\n        \"price\": 999,\r\n        \"discountPersent\": 55,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/d/d/y/-original-imagp8qe6mzhmydv.jpeg?q=70\",\r\n        \"brand\": \"ARROW\",\r\n        \"title\": \"Men Slim Fit Self Design Cut Away Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 949,\r\n        \"price\": 2499,\r\n        \"discountPersent\": 62,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/j/b/f/40-peshwnupy62747-peter-england-original-imagpzhh3kvah5ut.jpeg?q=70\",\r\n        \"brand\": \"PETER ENGLAND\",\r\n        \"title\": \"Men Regular Fit Checkered Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 899,\r\n        \"price\": 1799,\r\n        \"discountPersent\": 50,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/l/j/u/40-vhsflcufm32037-van-heusen-original-imaggb9fhs7rfggd.jpeg?q=70\",\r\n        \"brand\": \"VAN HEUSEN\",\r\n        \"title\": \"Men Regular Fit Checkered Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 1099,\r\n        \"price\": 2799,\r\n        \"discountPersent\": 62,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/u/e/j/40-aradosh1241-arrow-original-imagp7tyb6kkzzem.jpeg?q=70\",\r\n        \"brand\": \"ARROW\",\r\n        \"title\": \"Men Slim Fit Printed Cut Away Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 911,\r\n        \"price\": 2399,\r\n        \"discountPersent\": 62,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/2/5/5/m-hs-printed-3bros-original-imaggxfcyyb8ggcw.jpeg?q=70\",\r\n        \"brand\": \"3BROS\",\r\n        \"title\": \"Men Regular Fit Printed Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 499,\r\n        \"price\": 1799,\r\n        \"discountPersent\": 72,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/t/l/y/s-523299-v-mart-original-imagjyhuccmdw98h.jpeg?q=70\",\r\n        \"brand\": \"V-MART\",\r\n        \"title\": \"Men Regular Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 499,\r\n        \"price\": 960,\r\n        \"discountPersent\": 16,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/kxf0jgw0/shirt/l/p/v/42-pesfonubc93225-peter-england-original-imag9vp36vthbdbq.jpeg?q=70\",\r\n        \"brand\": \"PETER ENGLAND\",\r\n        \"title\": \"Men Regular Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 719,\r\n        \"price\": 1199,\r\n        \"discountPersent\": 40,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/0/h/v/40-peshwnufw80868-peter-england-original-imagpmdjdpj9rdzc.jpeg?q=70\",\r\n        \"brand\": \"PETER ENGLAND\",\r\n        \"title\": \"Men Regular Fit Checkered Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 899,\r\n        \"price\": 1799,\r\n        \"discountPersent\": 50,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/kxrvi4w0/shirt/s/f/5/l-nvk-mand-nivick-original-imaga5qasjycs4ey.jpeg?q=70\",\r\n        \"brand\": \"NIVICK\",\r\n        \"title\": \"Men Slim Fit Solid Mandarin Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 499,\r\n        \"price\": 1499,\r\n        \"discountPersent\": 66,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/b/v/p/xl-jiodfgvmnjioefkllklhndgv-pockman-original-imagphvmxtgrbcga.jpeg?q=70\",\r\n        \"brand\": \"UNICONIC\",\r\n        \"title\": \"Men Slim Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"whitePack of 2\",\r\n        \"discountedPrice\": 799,\r\n        \"price\": 1499,\r\n        \"discountPersent\": 46,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/g/b/b/xl-kcsh-mln-1647-wh-fubar-original-imagmpn3bhqckxvj.jpeg?q=70\",\r\n        \"brand\": \"FUBAR\",\r\n        \"title\": \"Men Slim Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 419,\r\n        \"price\": 1648,\r\n        \"discountPersent\": 74,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/n/b/d/-original-imagz3jbhdvxfpkp.jpeg?q=70\",\r\n        \"brand\": \"ARROW\",\r\n        \"title\": \"Men Slim Fit Checkered Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 949,\r\n        \"price\": 2499,\r\n        \"discountPersent\": 62,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/l/k/9/40-pesfoslh871453-peter-england-original-imagp9zeq4yfdyzc.jpeg?q=70\",\r\n        \"brand\": \"PETER ENGLAND\",\r\n        \"title\": \"Men Slim Fit Printed Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 799,\r\n        \"price\": 1599,\r\n        \"discountPersent\": 50,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/i/k/g/44-vhsfbslbe51125-van-heusen-original-imaggav5mhzg359d.jpeg?q=70\",\r\n        \"brand\": \"VAN HEUSEN\",\r\n        \"title\": \"Men Slim Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 149,\r\n        \"price\": 2599,\r\n        \"discountPersent\": 45,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/d/u/z/42-7176-don-vino-original-imagzdwbntyrbhuf.jpeg?q=70\",\r\n        \"brand\": \"Don Vino\",\r\n        \"title\": \"Men Regular Fit Striped Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 649,\r\n        \"price\": 1499,\r\n        \"discountPersent\": 56,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/l13whow0/shirt/p/3/a/44-dbhs1703-01-3bros-original-imagcr4fhjtjcyqw.jpeg?q=70\",\r\n        \"brand\": \"3BROS\",\r\n        \"title\": \"Men Regular Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 499,\r\n        \"price\": 990,\r\n        \"discountPersent\": 50,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/b/8/l/40-pesfwslp166652-peter-england-original-imagppkng4xknhhz.jpeg?q=70\",\r\n        \"brand\": \"PETER ENGLAND\",\r\n        \"title\": \"Men Slim Fit Solid Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 959,\r\n        \"price\": 1599,\r\n        \"discountPersent\": 40,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/l02r1jk0/shirt/3/f/g/l-fbrml-r-fibermill-original-imagbxyujjfqtkyj.jpeg?q=70\",\r\n        \"brand\": \"FIBERMILL\",\r\n        \"title\": \"Men Regular Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 399,\r\n        \"price\": 1599,\r\n        \"discountPersent\": 75,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/i/5/1/2xl-regular-thesmoke-original-imagkxegg6bf6hdn.jpeg?q=70\",\r\n        \"brand\": \"THESMOKE\",\r\n        \"title\": \"Men Regular Fit Solid Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 599,\r\n        \"price\": 899,\r\n        \"discountPersent\": 40,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/l4hcx3k0/shirt/d/5/s/m-th-smok-07-thesmoke-original-imagfdpsya5gghxt.jpeg?q=70\",\r\n        \"brand\": \"THESMOKE\",\r\n        \"title\": \"Men Regular Fit Solid Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 620,\r\n        \"price\": 699,\r\n        \"discountPersent\": 37,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/a/p/f/-original-imaghrnsmt48qmfm.jpeg?q=70\",\r\n        \"brand\": \"PETER ENGLAND\",\r\n        \"title\": \"Men Regular Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 751,\r\n        \"price\": 1599,\r\n        \"discountPersent\": 53,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/x/a/j/50-araesh0081-arrow-original-imaghszdnwydngzu.jpeg?q=70\",\r\n        \"brand\": \"ARROW\",\r\n        \"title\": \"Men Regular Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 919,\r\n        \"price\": 2299,\r\n        \"discountPersent\": 60,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/u/o/c/40-pesfonub175471-peter-england-original-imagm5zqbwuhpy3j.jpeg?q=70\",\r\n        \"brand\": \"PETER ENGLAND\",\r\n        \"title\": \"Men Regular Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 719,\r\n        \"price\": 1199,\r\n        \"discountPersent\": 40,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/z/k/b/40-k10k1105590g0-calvin-klein-jeans-original-imagga3egpkyhxbh.jpeg?q=70\",\r\n        \"brand\": \"Calvin Klein Jeans\",\r\n        \"title\": \"Men Slim Fit Striped Button Down Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 4499,\r\n        \"price\": 5999,\r\n        \"discountPersent\": 25,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/l15bxjk0/shirt/0/m/v/s-nvk-mand-nivick-original-imagcrw6hxz2ye7r.jpeg?q=70\",\r\n        \"brand\": \"NIVICK\",\r\n        \"title\": \"Men Slim Fit Solid Mandarin Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 499,\r\n        \"price\": 1499,\r\n        \"discountPersent\": 66,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/8/a/d/xxl-aone-01-alpesh-original-imagzbnhcrz9dknk.jpeg?q=70\",\r\n        \"brand\": \"Alpesh\",\r\n        \"title\": \"Men Regular Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 420,\r\n        \"price\": 999,\r\n        \"discountPersent\": 57,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/xif0q/shirt/m/b/m/-original-imagn5gt84cx4pgg.jpeg?q=70\",\r\n        \"brand\": \"VAN HEUSEN\",\r\n        \"title\": \"Men Slim Fit Checkered Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 1099,\r\n        \"price\": 1999,\r\n        \"discountPersent\": 47,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    },\r\n    {\r\n        \"imageUrl\": \"https://rukminim1.flixcart.com/image/612/612/kxrvi4w0/shirt/v/k/d/38-pesfoslb493283-peter-england-original-imaga5p5shuyv6u5.jpeg?q=70\",\r\n        \"brand\": \"PETER ENGLAND\",\r\n        \"title\": \"Men Slim Fit Solid Spread Collar Formal Shirt\",\r\n        \"color\": \"white\",\r\n        \"discountedPrice\": 839,\r\n        \"price\": 1399,\r\n        \"discountPersent\": 40,\r\n        \"size\": [\r\n            {\r\n              \"name\": \"S\",\r\n              \"quantity\": 20\r\n            },\r\n            {\r\n              \"name\": \"M\",\r\n              \"quantity\": 30\r\n            },\r\n            {\r\n              \"name\": \"L\",\r\n              \"quantity\": 50\r\n            }\r\n          ],\r\n          \"quantity\": 100,\r\n          \"topLavelCategory\": \"Men\",\r\n          \"secondLavelCategory\": \"Clothing\",\r\n          \"thirdLavelCategory\": \"shirt\",\r\n          \"description\":\"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ecommerce-server-production-7ba8.up.railway.app/api/admin/products/creates",
+					"protocol": "https",
+					"host": [
+						"ecommerce-server-production-7ba8",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"admin",
+						"products",
+						"creates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2ODQyMjg4ODIsImV4cCI6MTY4NDMxNTI4MiwiZW1haWwiOiJ2YWtocmFuQGdtYWlsLmNvbSJ9.QWj3zrCAqqf5zVTtkVmQB11FajyjRMOJuNnxQHcJiyA7ny21dB0I9_itErNIsxp-",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/admin/orders/2/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"admin",
+						"orders",
+						"2",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create multiple products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2ODQyMjg4ODIsImV4cCI6MTY4NDMxNTI4MiwiZW1haWwiOiJ2YWtocmFuQGdtYWlsLmNvbSJ9.QWj3zrCAqqf5zVTtkVmQB11FajyjRMOJuNnxQHcJiyA7ny21dB0I9_itErNIsxp-",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/admin/products/creates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"admin",
+						"products",
+						"creates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFlNGEwNjA2MDc3ZDg1YzM2Y2Y3ZDQiLCJpYXQiOjE2OTY0ODM4NDYsImV4cCI6MTY5NjY1NjY0Nn0.bDewI0MeXXNHxKWZM9WziVu-yquNurBesFVD7Bo83IQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/admin/orders/6519292953b3b6194285ac35/confirmed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"admin",
+						"orders",
+						"6519292953b3b6194285ac35",
+						"confirmed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"otp\":874945,\r\n    \"newPassword\":\"ashok4567\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5454/auth/reset-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"auth",
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "request reset password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userEmail\":\"ashokzarmariya90@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5454/auth/request-reset-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"auth",
+						"request-reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/products/search?query=dress&pageNumber=2",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"products",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "dress"
+						},
+						{
+							"key": "pageNumber",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add to favorite",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/products/add-favorite/6513d966dee06a5766501311",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"products",
+						"add-favorite",
+						"6513d966dee06a5766501311"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin report",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/admin/report",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"admin",
+						"report"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5454/api/admin/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5454",
+					"path": [
+						"api",
+						"admin",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Email To Customers",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

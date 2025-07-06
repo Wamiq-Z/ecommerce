@@ -1,0 +1,33 @@
+@keyframes changeBackground {
+    0% { background-image: url("https://kameez.co/cdn/shop/files/USE_CODE_6_1_1_1_3000x.png?v=1704544974"); }
+    25% { background-image: url("https://kameez.co/cdn/shop/files/1_1_d2f2cc94-f09c-4181-8a1c-4dedd0555711_3000x.jpg?v=1702041577"); }
+    50%{
+        background-image: url("https://kameez.co/cdn/shop/files/Pink_Cute_Valentine_s_Day_Sale_Banner_1_1_3000x.png?v=1710499965");
+    }
+    75%{
+        background-image: url("https://www.zestmelange.com/cdn/shop/files/zest_banner_2.png?v=1632722327");
+    }
+    /* https://www.zestmelange.com/cdn/shop/files/zest_banner_2.png?v=1632722327 */
+    100% { background-image: url("https://kameez.co/cdn/shop/files/USE_CODE_6_1_1_1_3000x.png?v=1704544974"); }
+}
+
+/* Apply animation to .banner element */
+.banner {
+    width: 100%;
+    height: 91.2vh;
+    background-size: cover;
+    animation: changeBackground 10s infinite; /* Change image every 3 seconds */
+}
+
+@media only screen and (max-width: 1000px) {
+    .banner {
+        height: 500px;
+    }
+  }
+
+@media only screen and (max-width: 768px) {
+    .banner {
+        height: 200px;
+    }
+  }
+  

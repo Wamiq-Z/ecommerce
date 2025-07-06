@@ -1,0 +1,200 @@
+<nav class="sticky top-0 z-50 left-0 right-0 bg-[#673ab7] text-white">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <!-- Mobile menu button-->
+          <button
+            type="button"
+            class="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <!--
+                Icon when menu is closed.
+    
+                Menu open: "hidden", Menu closed: "block"
+              -->
+            <svg
+              class="block h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+            <!--
+                Icon when menu is open.
+    
+                Menu open: "block", Menu closed: "hidden"
+              -->
+            <svg
+              class="hidden h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+        >
+          <div class="">
+            <div>
+              <img
+                class="w-8"
+                src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png"
+                alt="Your Company"
+              />
+            </div>
+          </div>
+          <div class="hidden sm:ml-6 sm:block">
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-yellow-300 px-3 py-2 font-medium"
+                aria-current="page"
+                >Shop With Zosh</a
+              >
+  
+              <div>
+                <button
+                class="!text-white open-button"
+                 
+                  mat-button
+                  (click)="openNavbarContent('men')"
+                >
+                  Men
+                </button>
+              </div>
+  
+              <div>
+                <button
+                  class="!text-white open-button"
+                  mat-button
+                  (click)="openNavbarContent('women')"
+                >
+                  Women
+                </button>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+        <div
+          class="absolute inset-y-0 right-0 flex gap-5 items-center pr-2 sm:static sm:inset-auto"
+        >
+         
+          <button
+            (click)="navigateTo('cart')"
+            mat-icon-button
+            color=""
+            aria-label="Example icon button with a menu icon"
+          >
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+  
+          @if(userProfile){
+
+            <div class="relative ml-3 flex items-center">
+              <div class="flex items-center space-x-5">
+                <!-- <span>{{userProfile?.firstName}}</span> -->
+                <span class="font-bold text-lg tracking-wider">{{
+                  userProfile?.firstName
+                }}</span>
+    
+                <button mat-button [matMenuTriggerFor]="menu">
+                  <img
+                    class="h-8 w-8 rounded-full object-cover object-top"
+                    src="https://cdn.pixabay.com/photo/2023/08/02/23/36/ai-generated-8166028_640.jpg"
+                    alt=""
+                  />
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>Profile</button>
+                  <button (click)="navigateTo('account/orders')" mat-menu-item>
+                    Orders
+                  </button>
+                  @if(userProfile.role == 'ROLE_ADMIN'){
+                     <button
+                   
+                    (click)="navigateTo('/admin')"
+                    mat-menu-item
+                  >
+                    Admin Dashboard
+                  </button>
+                  }
+                 
+                  <button (click)="handleLogout()" mat-menu-item>Logout</button>
+                </mat-menu>
+              </div>
+            </div>
+            }@else{
+            <button
+              class="w-full"
+              (click)="openLoginModal()"
+              type="submit"
+              mat-raised-button
+              color="accent"
+            >
+              LOGIN
+            </button>
+            }
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden" id="mobile-menu">
+      <div class="space-y-1 px-2 pb-3 pt-2">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a
+          href="#"
+          class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+          aria-current="page"
+          >Dashboard</a
+        >
+        <a
+          href="#"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+          >Team</a
+        >
+        <a
+          href="#"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+          >Projects</a
+        >
+        <a
+          href="#"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+          >Calendar</a
+        >
+      </div>
+    </div>
+  
+    <!-- content -->
+    <div>
+      @if (isNavbarContentOpen){
+        <div class="modal-container">
+          
+          <app-navbar-content [selectedSection]="currentSection" />
+        </div>
+      }
+      
+    </div>
+  </nav>
+  

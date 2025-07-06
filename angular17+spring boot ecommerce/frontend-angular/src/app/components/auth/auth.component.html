@@ -1,0 +1,13 @@
+@if(isLoggedIn){
+  <div class="p-5" >
+    <app-login [changeTemplate]="changeTemplate"/>
+  </div>
+}
+@else{
+   <div  class="p-5" >
+    <app-register [changeTemplate]="changeTemplate" />
+  </div>
+}
+
+  
+ 

@@ -1,0 +1,69 @@
+<div>
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="imageUrl">
+        <th mat-header-cell *matHeaderCellDef>Image</th>
+        <td mat-cell *matCellDef="let element">
+          <img
+            class="rounded-full h-10 w-10 object-cover"
+            [src]="element.imageUrl"
+            [alt]="element.title"
+          />
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let element">
+          {{
+            isDashboard ? element.title.substring(0, 9) + "..." : element.title
+          }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let element">{{ element.category.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="discountedPrice">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">
+          ₹{{ element.discountedPrice }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef>Quantity</th>
+        <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            (click)="handleDeleteProduct(element.id)"
+            mat-stroked-button
+            color="accent"
+          >
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  @if(isPagination){
+  <div class="w-full py-5 flex justify-center shadow-lg rounded-md">
+    <mat-paginator
+      [length]="products?.products?.totalElements"
+      [pageSize]="10"
+      [pageIndex]="currentPage - 1"
+      (page)="handlePaginationChange($event)"
+      class="w-full bg-[#0a0a0a]"
+    ></mat-paginator>
+  </div>
+  }
+</div>

@@ -1,0 +1,51 @@
+<div class="">
+    <div class="flex w-full ">
+      <section
+        class="border-r sticky top-[9vh] w-[20%] h-[91vh] overflow-y-hidden flex flex-col justify-between"
+      >
+        <div class="space-y-5 py-4">
+          <div class="flex items-center space-x-4 px-3 cursor-pointer" routerLink="/admin">
+            <i class="fas fa-border-all text-2xl"></i>
+            <span class="text-xl">Dashboard</span>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="flex items-center space-x-4 px-3 cursor-pointer" routerLink="/admin/products">
+            <i class="fas fa-receipt text-2xl"></i>
+            <span class="text-xl">Products</span>
+          </div>
+          <mat-divider></mat-divider>
+  
+          <div class="flex items-center space-x-4 px-3 cursor-pointer" routerLink="/admin/orders">
+            <i class="far fa-clipboard text-2xl"></i>
+            <span class="text-xl">Orders</span>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="flex items-center space-x-4 px-3 cursor-pointer" routerLink="/admin/customers">
+            <i class="fas fa-users text-2xl"></i>
+            <span class="text-xl">Customers</span>
+          </div>
+          <mat-divider></mat-divider>
+          
+  
+          <div class="flex items-center space-x-4 px-3 cursor-pointer" routerLink="/admin/add-products">
+            <i class="far fa-plus-square text-2xl"></i>
+            <span class="text-xl">Add Product</span>
+          </div>
+        </div>
+  
+        <div class="py-4">
+          <mat-divider class="py-2"></mat-divider>
+          <div class="flex items-center space-x-4 px-3">
+            <i class="fas fa-sign-out-alt text-2xl"></i>
+            <span class="text-xl"> Logout </span>
+          </div>
+        </div>
+      </section>
+      
+      <section class="w-[80%]">
+       
+        <router-outlet ></router-outlet>
+      </section>
+    </div>
+  </div>
+  

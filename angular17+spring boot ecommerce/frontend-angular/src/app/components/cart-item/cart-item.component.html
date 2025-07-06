@@ -1,0 +1,63 @@
+<div class="p-5 shadow-lg">
+  <div class="flex items-center">
+    <div class="w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem]">
+      <img
+        class="w-full h-full object-cover object-top"
+        [src]="product.product?.imageUrl"
+      />
+    </div>
+    <div class="ml-5 space-y-1">
+      <p class="font-semibold">{{ product.product.title }}</p>
+      <p class="opacity-70">
+        Size: {{ product.size }}, {{ product.product.color }}
+      </p>
+      <p class="opacity-70 mt-2">Seller: {{ product.product.brand }}</p>
+      <div class="flex space-x-2 items-center pt-3">
+        <p class="opacity-50 line-through">₹{{ product.product.price }}</p>
+        <p class="font-semibold text-lg">
+          ₹{{ product.product.discountedPrice }}
+        </p>
+        <p class="text-green-600 font-semibold">
+          {{ product.product.discountPersent }}% off
+        </p>
+      </div>
+    </div>
+  </div>
+
+  @if(showButton){
+  <div class="flex items-center lg:space-x-10 pt-4 justify-between">
+    <div class="flex items-center space-x-2">
+      <!-- Decrement quantity button -->
+
+      <div class="example-button-container">
+        <button
+          mat-mini-fab
+          color="accent"
+          aria-label="Example icon button with a delete icon"
+          (click)="updateCartItem(-1)"
+          [disabled]="product.quantity == 1"
+        >
+          <mat-icon>remove</mat-icon>
+        </button>
+      </div>
+      <!-- Quantity display -->
+      <span class="py-1 px-7 border border-gray-800 rounded-sm">{{
+        product.quantity
+      }}</span>
+
+      <!-- Increment quantity button -->
+      <button
+        mat-mini-fab
+        color="accent"
+        aria-label="Example icon button with a plus one icon"
+        (click)="updateCartItem(1)"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <button (click)="removeCartItem()" mat-stroked-button color="accent">
+      Remove
+    </button>
+  </div>
+  }
+</div>

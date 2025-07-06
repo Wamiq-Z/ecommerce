@@ -1,0 +1,38 @@
+<div class="py-20  px-5 lg:px-20">
+  <h1 class="text-lg font-bold text-center py-10">My Order History</h1>
+
+  <div class="lg:grid grid-cols-4 gap-5">
+    <div class="col-span-1">
+      <div class="">
+        @for(option of orderFilter; track option){
+        <div>
+          <div class="flex items-center">
+            <mat-checkbox
+              [id]="option.value"
+              [value]="option.value"
+              class="example-margin"
+            >
+              <span class="text-sm text-gray-300">
+                {{ option.label }}
+              </span>
+            </mat-checkbox>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+    <div class="space-y-5 col-span-3">
+      @for(item of orders; track item){
+      <div class="space-y-5">
+        <div
+        class="cursor-pointer"
+          (click)="navigateToOrderDetail('/order/' + item.id)"
+          *ngFor="let orderItem of item.orderItems"
+        >
+          <app-order-card [orderItem]="orderItem" />
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

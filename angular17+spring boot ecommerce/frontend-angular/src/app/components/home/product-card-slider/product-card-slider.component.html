@@ -1,0 +1,11 @@
+<div class="px-5 lg:px-20 py:5 lg:py-10">
+    <p class="font-semibold text-2xl opacity-75">{{title}}</p>
+
+    <div class="flex gap-5 flex-wrap justify-center">
+        @for(item of products; track 1){
+            <app-slider-product-card [product]="item" (click)="navigateToProducts()"/>
+            } @empty{ no recipe exist }
+       
+    </div>
+    
+</div>

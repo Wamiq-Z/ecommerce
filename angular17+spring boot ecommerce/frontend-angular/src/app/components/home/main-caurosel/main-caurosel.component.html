@@ -1,0 +1,13 @@
+<div class="relative">
+    <div class="carousel-container overflow-x-hidden">
+      <div class="carousel " [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+        @for (item of carouselData; track 1) {
+            <!-- <a [routerLink]="item.path" class="carousel-item"> -->
+            <img [src]="item.image" alt="Carousel Image">
+          <!-- </a> -->
+        }
+       
+      </div>
+    </div>
+  </div>
+  

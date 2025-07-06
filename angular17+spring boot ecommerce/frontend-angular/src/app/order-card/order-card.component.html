@@ -1,0 +1,28 @@
+<div class="">
+    <div class="grid grid-cols-6">
+      <div class="col-span-3">
+        <div class="flex items-center w-full">
+          <img
+            class="w-[5rem] h-[5rem] object-cover object-top"
+            [src]="orderItem.product.imageUrl"
+            alt=""
+          />
+          <div class="ml-5">
+            <p class="text-lg text-gray-800">
+              {{orderItem.product.title}}
+            </p>
+            <p class="text-sm text-gray-800">Size : {{orderItem.size}}</p>
+            <p class="text-sm text-gray-800">Color : {{orderItem.product.color}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1 text-gray-800">
+        <p>₹{{orderItem.product.discountedPrice}}</p>
+      </div>
+      <div class="col-span-2 text-gray-600">
+        <p class="font-semibold text-lg">Expected Delivery On Mar 03</p>
+        <p class="text-sm">Your Item Has Been Delivered</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,51 @@
+<div class="w-full">
+  <div class="bg-gray-950 text-white w-full h-1/2 shadow-lg p-6">
+    <div class="flex justify-around">
+      @for(item of category[selectedSection].sections; track 1){
+      <div class="flex flex-col">
+        <h1 class="text-center">{{ item.name }}</h1>
+        <!-- *ngFor="let section of item.items" -->
+        @for(section of item.items; track section){
+           <button
+          (click)="
+            navigateToProducts(
+              '/' + selectedSection + '/' + '/' + item.id + '/' + section.id
+            )
+          "
+          mat-button
+          
+        >
+          {{ section.name }}
+        </button>
+        }@empty{
+          <h1 class="text-center">No items</h1>
+        }
+       
+      </div>
+      } @empty{ provide data }
+
+      <div class="hidden lg:block">
+        <div class="mb-5">
+          <img
+            class="w-[19rem] h-[20rem] object-cover object-top rounded-md"
+            src="https://cdn.shopify.com/s/files/1/0049/3649/9315/products/koskii-yellow-printed-semicrepe-designer-readymadelehenga-gcrm0029461_yellow_1_1800x1800.jpg?v=1682068296"
+            alt=""
+          />
+        </div>
+        <p class="text-gray-600">New Arival</p>
+      </div>
+      <div class="hidden lg:block">
+        <div class="mb-5">
+          <img
+            class="w-[19rem] h-[20rem] object-cover object-top rounded-md"
+            src="https://cdn.shopify.com/s/files/1/0049/3649/9315/products/koskii-lemonyellow-threadwork-georgette-designer-readymadelehenga-gcrm0029810_lemon_yellow_1_1800x1800.jpg?v=1681290976"
+            alt=""
+          />
+        </div>
+
+        <p class="text-gray-600">Light Grey Zariwork Net Readymade Lehenga</p>
+        <p class="text-gray-600">{{ selectedSection == "women" }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+<div class="createProductContainer p-5 lg:px-20">
+  <h1 class="text-center py-10 text-2xl">
+    {{ "Add New Product" | uppercase }}
+  </h1>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+      <mat-form-field>
+        <input matInput formControlName="imageUrl" placeholder="Image URL" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="brand" placeholder="Brand" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="title" placeholder="Title" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="color" placeholder="Color" />
+      </mat-form-field>
+
+      <div class="col-span-2 grid grid-cols-3 gap-2">
+        <mat-form-field>
+          <mat-label>Top Level Category</mat-label>
+          <mat-select formControlName="topLavelCategory">
+            <mat-option value="men">Men</mat-option>
+            <mat-option value="women">Women</mat-option>
+            <mat-option value="kids">Kids</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Second Level Category</mat-label>
+          <mat-select formControlName="secondLavelCategory">
+            <mat-option value="clothing">Clothing</mat-option>
+            <mat-option value="accessories">Accessories</mat-option>
+            <mat-option value="brands">Brands</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Third Level Category</mat-label>
+          <mat-select formControlName="thirdLavelCategory">
+            <mat-option value="top">Tops</mat-option>
+            <mat-option value="women_dress">Dresses</mat-option>
+            <mat-option value="t-shirts">T-Shirts</mat-option>
+            <mat-option value="women_saree">Saree</mat-option>
+            <mat-option value="lengha_choli">Lengha Choli</mat-option>
+            <mat-option value="men_jeans">Men Jeans</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="col-span-2">
+        <textarea
+          matInput
+          formControlName="description"
+          placeholder="Description"
+          rows="3"
+        ></textarea>
+      </mat-form-field>
+
+      <div class="col-span-2 grid grid-cols-1 lg:grid-cols-3 gap-2">
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="price"
+            placeholder="Price"
+            type="number"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="discountedPrice"
+            placeholder="Discounted Price"
+            type="number"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="discountPersent"
+            placeholder="Discount Percentage"
+            type="number"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="size"
+          placeholder="Size Name"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="quantity"
+          placeholder="Quantity"
+          type="number"
+        />
+      </mat-form-field>
+    </div>
+    <button
+      style="padding: 1.6rem"
+      class="w-full py-20"
+      mat-raised-button
+      color="accent"
+      type="submit"
+    >
+      Add New Product
+    </button>
+  </form>
+</div>

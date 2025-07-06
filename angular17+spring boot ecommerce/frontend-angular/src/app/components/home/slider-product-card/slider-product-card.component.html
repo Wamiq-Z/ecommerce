@@ -1,0 +1,23 @@
+<div
+
+  class="box hover:scale-105 transition-all duration-500 cursor-pointer flex flex-col items-center rounded-lg shadow-lg overflow-hidden w-[13rem] lg:w-[15rem] mx-3"
+>
+  <div class="lg:h-[13rem] h-[10rem] w-[7rem] lg:w-[10rem]">
+    <img
+      class="object-cover object-top w-full h-full"
+      [src]="product.imageUrl"
+      alt=""
+    />
+  </div>
+
+  <div class="p-4 ">
+    <h3 class=" font-medium text-gray-900 text-sm">
+      <!-- {product?.brand || product?.title} -->
+      {{product.brand}}
+    </h3>
+    <p class="mt-2 text-sm text-gray-500">
+      <!-- {product?.title} -->
+     {{product.title}}
+    </p>
+  </div>
+</div>

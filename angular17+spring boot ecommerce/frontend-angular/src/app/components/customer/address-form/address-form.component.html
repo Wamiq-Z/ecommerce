@@ -1,0 +1,136 @@
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-12 px-5 lg:px-20">
+  <div class="col-span-1 lg:col-span-5">
+    <div
+      class="rounded-md border shadow-md lg:h-[32.2rem] overflow-y-auto hide-scrollbar box py-5"
+    >
+      <!-- Iterate over addresses -->
+
+      @for(item of adresses; track item; let last=$last){
+      <div class="p-5 py-7 cursor-pointer">
+        <div class="py-2 space-y-2">
+          <app-adress-card [address]="item" />
+          <button
+            style="padding: 1.6rem"
+            mat-raised-button
+            color="accent"
+            (click)="handleCreateOrder(item)"
+          >
+            Deliver Here
+          </button>
+          @if(!last){
+          <mat-divider></mat-divider>
+          }
+        </div>
+      </div>
+      }@empty{
+      <div class="h-full flex justify-center items-center">
+        <h1 class="font-semibold">no addresses saved</h1>
+      </div>
+      }
+    </div>
+  </div>
+  <div class="col-span-1 lg:col-span-7">
+    <div class="rounded-md shadow-md p-5 box">
+      <form [formGroup]="myForm" (ngSubmit)="handleSubmit()" class="">
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div class="col-span-1">
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>First Name</mat-label>
+              <input
+                matInput
+                formControlName="firstName"
+                placeholder="First Name"
+                autocomplete="given-name"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-span-1">
+            <mat-form-field appearance="fill" class="w-full removeOutline">
+              <mat-label>Last Name</mat-label>
+              <input
+                matInput
+                formControlName="lastName"
+                placeholder="Last Name"
+                autocomplete="given-name"
+                required
+                class="py-8 bg-transparent bg-black"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-span-2">
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Address</mat-label>
+              <textarea
+                matInput
+                formControlName="streetAddress"
+                placeholder="Address"
+                autocomplete="shipping address"
+                rows="4"
+                required
+              ></textarea>
+            </mat-form-field>
+          </div>
+          <div class="col-span-1">
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>City</mat-label>
+              <input
+                matInput
+                formControlName="city"
+                placeholder="City"
+                autocomplete="shipping address-level2"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-span-1">
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>State/Province/Region</mat-label>
+              <input
+                matInput
+                formControlName="state"
+                placeholder="State/Province/Region"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-span-1">
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Zip / Postal code</mat-label>
+              <input
+                matInput
+                formControlName="zipCode"
+                placeholder="Zip / Postal code"
+                autocomplete="shipping postal-code"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-span-1">
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Phone Number</mat-label>
+              <input
+                matInput
+                formControlName="mobile"
+                placeholder="Phone Number"
+                autocomplete="tel"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-span-2">
+            <button
+              class="w-full"
+              style="padding: 1.6rem"
+              type="submit"
+              mat-raised-button
+              color="accent"
+            >
+              Deliver Here
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

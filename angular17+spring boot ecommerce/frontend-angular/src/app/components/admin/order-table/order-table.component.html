@@ -1,0 +1,111 @@
+<div >
+    
+  
+    <div>
+      <table
+        mat-table
+        [dataSource]="order"
+        class="mat-elevation-z8 "
+      >
+        <ng-container matColumnDef="imageUrl">
+          <th mat-header-cell *matHeaderCellDef>Image</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="space-y-2 my-2 flex items-center">
+              <img
+                *ngFor="let orderItem of element.orderItems"
+                class="rounded-full h-10 w-10 object-cover"
+                [src]="orderItem.product.imageUrl"
+                [alt]="element.title"
+              />
+            </div>
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Title</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="space-y-2 my-2">
+              <p *ngFor="let orderItem of element.orderItems">
+                {{ orderItem.product.title }}
+              </p>
+            </div>
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>Price</th>
+          <td mat-cell *matCellDef="let element">
+            ₹{{ element.totalDiscountedPrice }}
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let element">
+            <span
+              class="px-5 py-2 rounded-full text-center"
+              [ngClass]="
+                element.orderStatus === 'DELIVERED'
+                  ? 'bg-green-500'
+                  : element.orderStatus === 'PLACED'
+                  ? 'bg-orange-400'
+                  : element.orderStatus === 'CONFIRMED'
+                  ? 'bg-pink-500'
+                  : element.orderStatus === 'SHIPPED'
+                  ? 'bg-[#1C8D73]'
+                  : 'bg-blue-300'
+              "
+            >
+              {{ element.orderStatus }}
+            </span>
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="update">
+          <th mat-header-cell *matHeaderCellDef>Update</th>
+          <td mat-cell *matCellDef="let element">
+            <button [matMenuTriggerFor]="orderStatus" mat-stroked-button color="accent">
+              Status
+            </button>
+            <mat-menu #orderStatus="matMenu">
+              <button (click)="handleConfirmedOrder(element.id)" mat-menu-item>CONFIRMED ORDER</button>
+              <button (click)="handleShippedOrder(element.id)" mat-menu-item>SHIP ORDER</button>
+              <button (click)="handleDeliverOrder(element.id)" mat-menu-item>DELIVER ORDER</button>
+            </mat-menu>
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef>Delete</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              (click)="handleDeleteOrder(element.id)"
+              mat-stroked-button
+              color="accent"
+            >
+              Delete
+            </button>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  
+    <!-- <div class="w-full py-5 flex justify-center shadow-lg rounded-md">
+      <mat-paginator
+          [length]="products?.products?.totalElements"
+          [pageSize]="10"
+          [pageIndex]="currentPage - 1"
+          (page)="handlePaginationChange($event)"
+          class="w-full bg-[#0a0a0a]"
+        ></mat-paginator>
+    </div> -->
+  </div>
+  

@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+     }
+
+     .box{
+          box-shadow: #d9d9d9 0px 5px 5px;
+          padding: 15px;
+      }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
